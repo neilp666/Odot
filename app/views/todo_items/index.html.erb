@@ -1,0 +1,15 @@
+<h1><%= @todo_list.title %></h1>
+
+<ul>
+	<li>
+		<% @todo_list.todo_items.each do |todo_item| %>
+		<%= todo_item.content %>
+		<%= link_to "Edit", edit_todo_list_todo_item_path(todo_item) %>
+		<%= link_to "Delete", edit_todo_list_todo_item_path, method: :delete, data: { confirm: "Are you sure"} %>
+	</li>
+	<% end %>
+</ul>
+
+<p>
+	<%= link_to "New Todo Item", new_todo_list_todo_item_path %>
+</p>
